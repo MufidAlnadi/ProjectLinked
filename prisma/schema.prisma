@@ -11,15 +11,50 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  password String
- 
+  id              Int              @id @default(autoincrement())
+  name            String
+  email           String           @unique
+  password        String
+  created_at      DateTime         @default(now())
+  jobApplications JobApplication[]
+  jobs            Job[]
+  image           String?
+}
+
+model Job {
+  id               Int              @id @default(autoincrement())
+  owner_id         Int
+  title            String
+  pdf_path         String?
+  category         String
+  description      String
+  location         String
+  full_description String?
+  created_at       DateTime         @default(now())
+  is_approved      Boolean          @default(false)
+  is_closed        Boolean          @default(false)
+  start_date       String?
+  end_date         String?
+  owner            User             @relation(fields: [owner_id], references: [id])
+  jobApplications  JobApplication[]
+}
+
+model JobApplication {
+  id           Int      @id @default(autoincrement())
+  job_id       Int
+  submitted_by Int
+  pdf_path     String?
+  first_name   String?
+  last_name    String?
+  mobile_no    String?
+  email        String?
+  submitted_at DateTime @default(now())
+  job          Job      @relation(fields: [job_id], references: [id])
+  submittedBy  User     @relation(fields: [submitted_by], references: [id])
 }
 
 model ContactMessage {
-  id      Int     @id @default(autoincrement())
+  id      Int    @id @default(autoincrement())
   name    String
   email   String
   phone   String

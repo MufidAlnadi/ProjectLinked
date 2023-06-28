@@ -4,20 +4,20 @@ const handler = NextAuth({
   providers: [
     CredentialsProvider({
       name: "Credentials",
-      
+
       credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        email: { label: "Username", type: "text", placeholder: "name" },
         password: { label: "Password", type: "password" },
       },
+
       async authorize(credentials, req) {
-        
         const res = await fetch("http://localhost:3000/api/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            username: credentials?.username,
+            username: credentials?.email,
             password: credentials?.password,
           }),
         });
@@ -25,13 +25,9 @@ const handler = NextAuth({
         const user = await res.json();
 
         if (user) {
-        
           return user;
         } else {
-          
           return null;
-
-          
         }
       },
     }),

@@ -7,32 +7,43 @@ import { useRouter } from "next/navigation";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 
-import {useSession} from "next-auth/react"
+import { useSession } from "next-auth/react";
 
 import MenuItem from "./MenuItem";
 import Avatar from "./Avatar";
+import usePostModal from "@/app/hooks/usePostModal";
 
-
-const UserMenu = () => {  
+const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
- const {data: session} = useSession();  
-
-
+  const postModal = usePostModal();
+  const { data: session } = useSession();
+  
+  console.log("🚀 ~ file: UserMenu.tsx:23 ~ UserMenu ~ session:", session)
+  console.log("id",session?.user.id);
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
+     
   }, []);
 
-
+  const post = useCallback(() => {
+    if (!session?.user) {
+      loginModal.onOpen();
+      
+    }
+   
+    
+    postModal.onOpen();
+  }, [session?.user, loginModal, postModal]);
 
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-4 px-3">
         <div
-          onClick={() => {}}
+          onClick={post}
           className="
             hidden
             md:block
@@ -91,10 +102,6 @@ const UserMenu = () => {
           "
         >
           <div className="flex flex-col cursor-pointer">
-            <MenuItem
-              label="Project awaiting"
-              onClick={() => router.push("/")}
-            />
             {session && session.user ? (
               <>
                 <MenuItem
@@ -105,9 +112,18 @@ const UserMenu = () => {
                   label="My Projects"
                   onClick={() => router.push("/")}
                 />
-                <MenuItem label="Post a Project" onClick={() => {}} />
+                <MenuItem label="Post a Project" onClick={postModal.onOpen} />
                 <hr />
-                <MenuItem label="Logout" onClick={() => signOut()} />
+                <div
+                  className=" px-4 
+                            py-3 
+                            hover:bg-red-400 
+                            transition
+                            font-semibold"
+                  onClick={() => signOut()}
+                >
+                  Logout
+                </div>
               </>
             ) : (
               <>
