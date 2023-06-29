@@ -15,17 +15,19 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 }) => {
   const router = useRouter();
   return (
+    <div className="h-screen">
     <div
-      className=" h-[60vh]
-        flex flex-col
+      className=" 
+        h-[60vh]
+        flex 
+        flex-col
         gap-2
         justify-center
         items-center
-
         "
     >
       <Heading center title={title} subtitle={subtitle} />
-      <div className="w-48 mt-4">
+      <div className="w-48 mt-4  ">
         {showReset && (
           <Button
             outline
@@ -33,7 +35,9 @@ const EmptyState: React.FC<EmptyStateProps> = ({
             onClick={() => router.push("/categories")}
           />
         )}
+ 
       </div>
+    </div>
     </div>
   );
 };

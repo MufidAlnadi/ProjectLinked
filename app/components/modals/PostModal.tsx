@@ -24,6 +24,7 @@ enum STEPS {
   PDF = 4,
   DESCRIPTION = 5,
 }
+
 const PostModal: React.FC = () => {
   const router = useRouter();
   const postModal = usePostModal();

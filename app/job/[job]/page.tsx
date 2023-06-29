@@ -1,20 +1,26 @@
 
 import EmptyState from "@/app/components/EmptyState";
-import React, { FC } from "react";
+import React from "react";
 import JobCard from "./JobCard";
+import getJobs from "@/app/actions/getJobs";
 
-interface pageProps {
-  params: { name: string };
-}
-const  page: FC<pageProps>  = ({ params }) => {
 
-  const isEmpty = true;
-  if (isEmpty) {
+
+export default async function page() {
+   const jobs=  await getJobs();
+
+  if (jobs.length===0) {
     return <EmptyState showReset/>;
   }
   return (
-    <JobCard/>
-  );
-};
+    <div>
+      {jobs.map((job:any)=>{
+        return(
 
-export default page;
+          <JobCard key={job.id} data={job} />
+        )
+      })}
+    </div> 
+  );
+}
+
