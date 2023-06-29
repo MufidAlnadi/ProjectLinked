@@ -1,5 +1,6 @@
 import getJobById from '@/app/actions/getJobById';
 import React from 'react';
+import JobDetails from './JobDetails';
 
 interface IdParams {
   JobDetailsId: string;
@@ -10,7 +11,9 @@ const JobDetailsPage = async ({ params }: { params: IdParams }) => {
   return (
     <>
     <div>
-      {jobById?.title}
+      <JobDetails
+      job={jobById}
+      />
     </div>
     <div>
       apply
