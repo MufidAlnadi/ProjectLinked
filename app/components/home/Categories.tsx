@@ -7,8 +7,8 @@ import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { MdWaterDrop, MdOutlineHvac } from "react-icons/md";
 import { GiElectricalResistance, GiMechanicalArm } from "react-icons/gi";
-import { FaCheckCircle } from "react-icons/fa";
-import { LiaBuildingSolid } from "react-icons/lia";
+
+import { LiaBuildingSolid ,LiaRoadSolid} from "react-icons/lia";
 import { GrPersonalComputer } from "react-icons/Gr";
 import { BsFillBagFill } from "react-icons/Bs";
 
@@ -38,7 +38,7 @@ export const popularServicesData = [
   },
   {
     name: "Roads & Bridges",
-    icon: FaCheckCircle,
+    icon: LiaRoadSolid,
     label: "Infrastructure construction",
     image:
       "https://images.unsplash.com/photo-1503708928676-1cb796a0891e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
