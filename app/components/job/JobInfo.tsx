@@ -3,15 +3,17 @@ import React from 'react';
 import { IconType } from 'react-icons';
 import JobCategory from './JobCategory';
 interface JobInfoProps {
-	category: {
-		icon: IconType;
-		label: string;
-		name: string;
-	}| undefined;
+	category:
+		| {
+				icon: IconType;
+				label: string;
+				name: string;
+		  }
+		| undefined;
 	description: string;
 	fullDescription: string;
 	location: string;
-	pdf:string
+	pdf: string;
 }
 const JobInfo: React.FC<JobInfoProps> = ({
 	category,
@@ -19,30 +21,26 @@ const JobInfo: React.FC<JobInfoProps> = ({
 	fullDescription,
 	location,
 }) => {
-
-	
 	return (
 		<div className="col-span-4 flex flex-col gap-8">
 			<div className="text-xl font-semibold flex flex-row items-center gap-2">
 				<div>{description} </div>
 			</div>
-			<div className=" flex flex-row items-center gap-4 font-light text-neutral-500">
-				<div>{fullDescription}</div>
-			</div>
-			<hr />
-			{category &&(
-				<JobCategory 
-				icon={category.icon}
-				label={category.name}
-				description={category.label}/>
-			) }
-			<hr/>
-			<div className=''>
-					pdf
 
-					</div>
-					<hr/>
-			<div className='text-lg font-light text-neutral-500'>{fullDescription}</div>
+			<hr />
+			{category && (
+				<JobCategory
+					icon={category.icon}
+					label={category.name}
+					description={category.label}
+				/>
+			)}
+			<hr />
+			<div className="">pdf</div>
+			<hr />
+			<div className="text-lg font-light text-neutral-500">
+				{fullDescription}
+			</div>
 		</div>
 	);
 };

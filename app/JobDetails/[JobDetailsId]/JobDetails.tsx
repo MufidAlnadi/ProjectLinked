@@ -3,8 +3,9 @@
 import { popularServicesData } from '@/app/components/home/Categories';
 import JobHead from '@/app/components/job/JobHead';
 import JobInfo from '@/app/components/job/JobInfo';
+import { useJobId } from '@/app/hooks/useJobId';
 import { Job } from '@prisma/client';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 
 interface JobDetailsProps {
 	job: Job;
@@ -23,7 +24,12 @@ const JobDetails: React.FC<JobDetailsProps> = ({ job }) => {
 	  ? job.start_date.substring(0, 10)
 	  : '';
   const formattedEndDate = job.end_date ? job.end_date.substring(0, 10) : '';
-
+;
+  const { setJobId } = useJobId();
+  useEffect(() => {
+    // Set the job ID in the useJobId hook
+    setJobId(job.id);
+  }, [job.id, setJobId])
 	return (
 		<>
 			<div className="max-w-screen-lg mx-auto ">

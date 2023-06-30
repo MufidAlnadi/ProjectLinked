@@ -79,7 +79,6 @@ const PostModal: React.FC = () => {
     setStep((value) => value + 1);
   };
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log("Form Data:", data);
       if (step !== STEPS.DESCRIPTION) {
         return onNext();
       }
@@ -88,7 +87,6 @@ const PostModal: React.FC = () => {
       .post("/api/postProject", data)
       .then(() => {
         toast.success("Project Submitted");
-         console.log("🚀 ~ file: PostModal.tsx:96 ~ data:", data);
         router.refresh();
         reset();
         setStep(STEPS.CATEGORY);
@@ -96,13 +94,10 @@ const PostModal: React.FC = () => {
       })
       .catch((error) => {
         toast.error("Something went wronge", error);
-         console.log("🚀 ~ file: PostModal.tsx:96 ~ data:", data);
       })
       .finally(() => {
         setisLoading(false);
-         console.log("🚀 ~ file: PostModal.tsx:96 ~ data:", data);
       });
-      console.log("🚀 ~ file: PostModal.tsx:96 ~ data:", data)
   };
   const actionLabel = useMemo(() => {
     if (step === STEPS.DESCRIPTION) {

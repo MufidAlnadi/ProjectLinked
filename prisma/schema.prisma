@@ -40,22 +40,24 @@ model Job {
 }
 
 model JobApplication {
-  id               Int      @id @default(autoincrement())
-  job_id           Int
-  submitted_by     Int
-  pdf_path         String?
-  first_name       String?
-  last_name        String?
-  mobile_no        String?
-  email            String?
-  submitted_at     DateTime @default(now())
-  cover_letter     String?
-  additional_info  String?
-  years_of_experience Int?
-  job              Job      @relation(fields: [job_id], references: [id])
-  submittedBy      User     @relation(fields: [submitted_by], references: [id])
+  id                  Int      @id @default(autoincrement())
+  job_id              Int
+  submitted_by        Int
+  pdf_path            String?
+  first_name          String
+  last_name           String
+  mobile_no           String
+  email               String
+  submitted_at        DateTime @default(now())
+  cv                  String?
+  cover_letter        String?
+  years_of_experience Int
+  price               Int
+  description         String
+  additional_info     String?
+  job                 Job      @relation(fields: [job_id], references: [id])
+  submittedBy         User     @relation(fields: [submitted_by], references: [id])
 }
-
 
 model ContactMessage {
   id      Int    @id @default(autoincrement())

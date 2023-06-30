@@ -7,6 +7,7 @@ import Navbar from './components/navbar/Navbar';
 import AuthProviders from './provider/AuthProvider';
 import Footer from './components/Footer';
 import PostModal from './components/modals/PostModal';
+import ApplyJobModal from './components/modals/ApplyModle';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -30,8 +31,9 @@ export default async function RootLayout({
           <main className="pt-4">
             <ToasterProvider />
             <RegisterModal />
-            <PostModal/>
             <LoginModal />
+            <PostModal/>
+            <ApplyJobModal/>
           {children}
           </main>
           <Footer/>

@@ -9,7 +9,10 @@ interface IdParams {
 
 const JobDetailsPage = async ({ params }: { params: IdParams }) => {
 	const jobById = await getJobById({ jobById: Number(params.JobDetailsId) });
-	console.log('🚀 ~ file: page.tsx:11 ~ JobDetailsPage ~ jobById:', jobById);
+	
+
+
+	
 	return (
 		<>
 			<div className="min-h-screen grid grid-cols-1 md:grid-cols-2">

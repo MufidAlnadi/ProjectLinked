@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
-export  async function POST(request: Request) {
-  const body = await request.json(); 
+
+export async function POST(request: Request) {
+  const body = await request.json();
   const {
     job_id,
     submitted_by,
@@ -13,6 +14,9 @@ export  async function POST(request: Request) {
     cover_letter,
     additional_info,
     years_of_experience,
+    cv,
+    description,
+    price,
   } = body;
 
   const jobApplication = await prisma.jobApplication.create({
@@ -27,6 +31,9 @@ export  async function POST(request: Request) {
       cover_letter,
       additional_info,
       years_of_experience,
+      cv,
+      description,
+      price,
     },
   });
 

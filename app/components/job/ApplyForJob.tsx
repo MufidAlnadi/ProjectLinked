@@ -2,19 +2,20 @@
 import React, { useState } from 'react';
 import Button from '../Button';
 import Link from 'next/link';
+import useApplyJobModal from '@/app/hooks/useApplyJobModal';
 
 const ApplyForJob = () => {
 	const [show, setShow] = useState(false);
 	const [show2, setShow2] = useState(false);
-	const [loading, setLoading] = useState(false);
 	const [agreed, setAgreed] = useState(false);
-
-	const handleApply = () => {
-		// Handle apply logic here
-	};
+	const ApplyJobModal = useApplyJobModal();
 
 	const handleAgree = () => {
 		setAgreed(true);
+	};
+
+	const handleApply = () => {
+		ApplyJobModal.onOpen();
 	};
 
 	return (
@@ -57,10 +58,9 @@ const ApplyForJob = () => {
 						</div>
 					)}
 					{agreed && (
-                        <div className='py-4'>
-
-						<Button disabled={loading} label="Apply"  onClick={handleApply} />
-                        </div>
+						<div className="py-4">
+							<Button label="Apply" onClick={handleApply} />
+						</div>
 					)}
 					<div className="border-t border-b py-4 mt-7 border-gray-200">
 						<div
