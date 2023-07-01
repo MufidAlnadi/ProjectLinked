@@ -55,6 +55,7 @@ model JobApplication {
   price               Int
   description         String
   additional_info     String?
+  payment             Int?
   job                 Job      @relation(fields: [job_id], references: [id])
   submittedBy         User     @relation(fields: [submitted_by], references: [id])
 }

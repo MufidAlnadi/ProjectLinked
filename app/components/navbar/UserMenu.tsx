@@ -104,7 +104,7 @@ const UserMenu = () => {
 								/>
 								<MenuItem
 									label="Applications"
-									onClick={() => router.push('/application')}
+									onClick={() => router.push('/myProjects')}
 								/>
 								<MenuItem label="Post a Project" onClick={postModal.onOpen} />
 								<hr />
