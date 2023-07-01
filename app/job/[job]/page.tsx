@@ -7,7 +7,7 @@ import getJobs from "@/app/actions/getJobs";
 
 
 export default async function page() {
-   const jobs=  await getJobs();
+   const jobs =  await getJobs();
 
   if (jobs.length===0) {
     return <EmptyState showReset/>;
