@@ -23,7 +23,7 @@ const JobDetailsPage = async ({ params }: { params: IdParams }) => {
 				</div>
 				<div className="flex">
 					<div className="flex-grow">
-						<ApplyForJob />
+						<ApplyForJob job={jobById} />
 					</div>
 				</div>
 			</div>

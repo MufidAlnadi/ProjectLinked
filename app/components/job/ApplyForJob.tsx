@@ -3,19 +3,34 @@ import React, { useState } from 'react';
 import Button from '../Button';
 import Link from 'next/link';
 import useApplyJobModal from '@/app/hooks/useApplyJobModal';
+import { Job } from '@prisma/client';
+import { useSession } from 'next-auth/react';
+import { toast } from 'react-hot-toast';
 
-const ApplyForJob = () => {
+
+interface JobDetailsProps {
+	job: Job;
+} 
+const ApplyForJob:React.FC<JobDetailsProps> = ({job}) => {
 	const [show, setShow] = useState(false);
 	const [show2, setShow2] = useState(false);
 	const [agreed, setAgreed] = useState(false);
 	const ApplyJobModal = useApplyJobModal();
+	const { data: session } = useSession();
 
+	const jobOwnerId = job.owner_id;
 	const handleAgree = () => {
 		setAgreed(true);
 	};
 
 	const handleApply = () => {
-		ApplyJobModal.onOpen();
+		if(jobOwnerId === session?.user.id){
+			toast.error('You cannot apply to your own job.');
+
+		}else{
+
+			ApplyJobModal.onOpen();
+		}
 	};
 
 	return (
