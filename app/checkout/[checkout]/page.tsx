@@ -9,7 +9,6 @@ interface IdParams {
 //
 
 const page = async ({ params }: { params: IdParams }) => {
-	console.log("🚀 ~ file: page.tsx:12 ~ page ~ params:", params.checkout)
 	const applicationsNumber = parseInt(params.checkout);
 	const application = await getApplicationById(applicationsNumber);
 	return (

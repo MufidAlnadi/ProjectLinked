@@ -72,7 +72,6 @@ const ApplyJobModal: React.FC = () => {
 	};
 
 	const onSubmit: SubmitHandler<FieldValues> = (data: any) => {
-		console.log('data: ', data);
 
 		data.years_of_experience = parseInt(data.years_of_experience);
 		data.price = parseInt(data.price);
@@ -92,13 +91,10 @@ const ApplyJobModal: React.FC = () => {
 			})
 			.catch((error) => {
 				toast.error('Something went wrong', error);
-				console.log('data: ', data);
 			})
 			.finally(() => {
 				setIsLoading(false);
-				console.log('data: ', data);
 			});
-		console.log('data: ', data);
 	};
 
 	const actionLabel = useMemo(() => {
@@ -218,7 +214,7 @@ const ApplyJobModal: React.FC = () => {
 					required
 				/>
 				<Input
-					id="description"
+					id="price"
 					label="Price"
 					type="number"
 					disabled={isLoading}
