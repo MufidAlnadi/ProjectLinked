@@ -6,15 +6,23 @@ import getJobs from "@/app/actions/getJobs";
 
 
 
-export default async function page() {
-   const jobs =  await getJobs();
+interface IdParams {
+	appID: string;
+}
 
-  if (jobs.length===0) {
+
+const page = async ({ params }: { params: IdParams }) => {
+   
+   const jobs =  await getJobs();
+   const filtered = jobs.filter((job) => job.category === decodeURIComponent(params.job));
+  //  console.log("🚀 ~ file: page.tsx:18 ~ page ~ filtered:", filtered)
+
+  if (filtered.length===0) {
     return <EmptyState showReset/>;
   }
   return (
     <div>
-      {jobs.map((job:any)=>{
+      {filtered.map((job:any)=>{
         return(
 
           <JobCard key={job.id} data={job} />
@@ -23,4 +31,5 @@ export default async function page() {
     </div> 
   );
 }
+export default page;
 
