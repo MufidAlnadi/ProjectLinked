@@ -21,7 +21,7 @@ interface CheckoutProps {
 
 const CheckoutForm: React.FC<CheckoutProps> = ({ application }) => {
 	const [isLoading, setIsLoading] = useState(false);
-        const router = useRouter();
+	const router = useRouter();
 	const {
 		register,
 		handleSubmit,
@@ -45,11 +45,12 @@ const CheckoutForm: React.FC<CheckoutProps> = ({ application }) => {
 			await axios.put('/api/updatePayment', {
 				applicationId: application.id,
 				payment: data.price,
+				jobId: application.job_id,
+				isClosed: true,
 			});
 
 			toast.success('Payment updated successfully');
-            router.push('/');
-
+			router.push('/');
 		} catch (error) {
 			toast.error('Failed to update payment');
 			console.error(error);
@@ -248,7 +249,7 @@ const CheckoutForm: React.FC<CheckoutProps> = ({ application }) => {
 			{/* Submit button */}
 			<button
 				type="submit"
-                disabled={isLoading}
+				disabled={isLoading}
 				className="mt-6 bg-blue-500 
                 disabled:opacity-70
                 disabled:cursor-not-allowed

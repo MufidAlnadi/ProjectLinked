@@ -14,8 +14,9 @@ interface IdParams {
 const page = async ({ params }: { params: IdParams }) => {
    
    const jobs =  await getJobs();
-   const filtered = jobs.filter((job) => job.category === decodeURIComponent(params.job));
-  //  console.log("🚀 ~ file: page.tsx:18 ~ page ~ filtered:", filtered)
+   const filtered = jobs.filter((job) => {
+    return job.category === decodeURIComponent(params.job) && !job.is_closed && job.is_approved;
+  });
 
   if (filtered.length===0) {
     return <EmptyState showReset/>;

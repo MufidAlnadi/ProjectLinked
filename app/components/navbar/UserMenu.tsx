@@ -12,6 +12,7 @@ import { useSession } from 'next-auth/react';
 import MenuItem from './MenuItem';
 import Avatar from './Avatar';
 import usePostModal from '@/app/hooks/usePostModal';
+import { BsThreeDotsVertical } from 'react-icons/Bs';
 
 const UserMenu = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -74,10 +75,7 @@ const UserMenu = () => {
           transition
           "
 				>
-					<AiOutlineMenu />
-					<div className="hidden md:block">
-						<Avatar src="" />
-					</div>
+					<BsThreeDotsVertical size={24} />
 				</div>
 			</div>
 			{isOpen && (
@@ -99,11 +97,12 @@ const UserMenu = () => {
 						{session && session.user ? (
 							<>
 								<MenuItem
-									label="Project awaiting"
+									label="Applications"
+									// accepted applications 
 									onClick={() => router.push('/')}
 								/>
 								<MenuItem
-									label="Applications"
+									label="My Projects"
 									onClick={() => router.push('/myProjects')}
 								/>
 								<MenuItem label="Post a Project" onClick={postModal.onOpen} />

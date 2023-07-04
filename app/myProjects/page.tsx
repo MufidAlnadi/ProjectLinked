@@ -7,7 +7,10 @@ import { getPostedJobs } from '../actions/getUserJobs';
 // 	id:id
 // }
 const Application = async () => {
-	const jobs = await getPostedJobs(1)
+	const jobs =  await getJobs();
+   const filtered = jobs.filter((job) => {
+    return job.category === decodeURIComponent(params.job) && !job.is_closed && job.is_approved;
+  });
 	return (
 		<>
 			{jobs?.map((job:any)=>{

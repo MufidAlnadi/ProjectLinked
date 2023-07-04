@@ -24,13 +24,13 @@ const ApplyForJob:React.FC<JobDetailsProps> = ({job}) => {
 	};
 
 	const handleApply = () => {
-		if(jobOwnerId === session?.user.id){
-			toast.error('You cannot apply to your own job.');
+		// if(jobOwnerId === session?.user.id){
+		// 	toast.error('You cannot apply to your own job.');
 
-		}else{
+		// }else{
 
 			ApplyJobModal.onOpen();
-		}
+		// }
 	};
 
 	return (

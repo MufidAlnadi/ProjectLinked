@@ -27,7 +27,7 @@ const Applcationcards: React.FC<JobCardProps> = ({ data }) => {
 	if (!isOwner) {
 		return (
 			<EmptyState
-				title="No Applications yet"
+				title="No Projects yet"
 				subtitle="looks like no one submitted any application"
 			/>
 		);

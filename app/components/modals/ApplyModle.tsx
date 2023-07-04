@@ -167,10 +167,6 @@ const ApplyJobModal: React.FC = () => {
 					title="Your Professional Background"
 					subtitle="Requirement for your project"
 				/>
-				<h1>CV</h1>
-				<hr />
-				<h3 className="text-neutral-500">(optional)</h3>
-
 				<textarea
 					id="cover_letter"
 					rows={4}
