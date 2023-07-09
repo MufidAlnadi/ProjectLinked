@@ -3,6 +3,7 @@ import React from 'react';
 import EmptyState from '../components/EmptyState';
 import Applcationcards from './Applcationcards';
 import { getPostedJobs } from '../actions/getUserJobs';
+import getJobs from '../actions/getJobs';
 // interface ApplicationProps{
 // 	id:id
 // }

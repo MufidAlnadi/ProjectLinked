@@ -1,35 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Title
 
-## Getting Started
+🔧 Platform for Connecting Clients with Specialized Subcontractors 🔩
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+📄 This repository contains the code for a platform designed to streamline the process of finding and securing industrial work for subcontractors, while simplifying the process of finding the right subcontractor for clients.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🔹 Next.js
+🔹 PostgreSQL
+🔹 Tailwind CSS
+🔹 Prisma
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
+✅ User-friendly interface for clients and subcontractors
+✅ Search functionality for projects and subcontractors
+✅ Secure user authentication and authorization
+✅ Efficient data storage and retrieval using PostgreSQL
+✅ Responsive and customizable UI design with Tailwind CSS
+✅ Seamless database querying and manipulation with Prisma
 
-To learn more about Next.js, take a look at the following resources:
+## Figma
+- [Mockup](https://www.figma.com/file/935fZnpjqL7brljozTA1kK/mockup-project?type=design&mode=design)
+- [Wireframe](https://www.figma.com/file/RtbHM6hDSgG0JgUCN2bkvf/project-wirefram?type=whiteboard)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+🚀 Follow these steps to run the project locally:
 
-## Deploy on Vercel
+1. Clone the repository: `git clone` [ProjectLinked](https://github.com/MufidAlnadi/ProjectLinked)
+2. Install dependencies: `npm install`
+3. Set up the PostgreSQL database and update the connection details in the project configuration.
+4. Start the development server: `npm run dev`
+5. Access the application at `http://localhost:3000`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-"# working" 
+🤝 Contributions are welcome! If you have any ideas, suggestions, or bug fixes, please submit a pull request. Ensure that your code follows the established coding style and includes relevant unit tests.
+
+
+## Acknowledgements
+
+🙏 We would like to thank Orange coding academy team for their valuable contributions and support in developing this project.
+
+## Contact
+
+📧 For any inquiries or feedback, please reach out to us at mufidhussein@gmail.com
+
+🌟 Thank you for your interest in our platform! We look forward to your participation.
