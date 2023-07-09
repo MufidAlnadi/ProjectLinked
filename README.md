@@ -15,12 +15,12 @@
 
 ## Features
 
-✅ User-friendly interface for clients and subcontractors
-✅ Search functionality for projects and subcontractors
-✅ Secure user authentication and authorization
-✅ Efficient data storage and retrieval using PostgreSQL
-✅ Responsive and customizable UI design with Tailwind CSS
-✅ Seamless database querying and manipulation with Prisma
+- ✅ User-friendly interface for clients and subcontractors
+- ✅ Search functionality for projects and subcontractors
+- ✅ Secure user authentication and authorization
+- ✅ Efficient data storage and retrieval using PostgreSQL
+- ✅ Responsive and customizable UI design with Tailwind CSS
+- ✅ Seamless database querying and manipulation with Prisma
 
 ## Figma
 - [Mockup](https://www.figma.com/file/935fZnpjqL7brljozTA1kK/mockup-project?type=design&mode=design)
