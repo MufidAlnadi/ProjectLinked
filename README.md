@@ -43,7 +43,7 @@
 
 ## Acknowledgements
 
-🙏 We would like to thank Orange coding academy team for their valuable contributions and support in developing this project.
+🙏 We would like to thank 🟧 Orange coding academy team 🟧 for their valuable contributions and support in developing this project.
 
 ## Contact
 
