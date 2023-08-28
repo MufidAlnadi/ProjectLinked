@@ -35,31 +35,13 @@ export default function Hero() {
     <div className="max-w[1400px] h-[780px] ">
       <div className="container mx-auto">
         <div className="max-w[1400px] h-[780px] absolute">
-          <div className="z-0 relative w-[90%] md:w-[650px] flex justify-center flex-col h-full gap-20">
+          <div className="z-0 relative w-[90%] md:w-[650px] flex justify-center flex-col h-full gap-20 pl-9">
             <h1 className="text-white text-3xl sm:text-5xl leading-snug 2xl:mb-10 ti:ml-10">
               Discover the ideal&nbsp;
-              <i>services</i>
+              <i className="text-blue-500 font-extrabold">services</i>
               <br />
               for your business
             </h1>
-            <div className="flex align-middle ti:ml-10 z-0">
-              <div className="relative">
-                <IoSearchOutline className="absolute text-gray-500 text-2xl flex align-middle h-full left-2" />
-                <input
-                  type="text"
-                  className="h-12 sm:h-14 w-full sm:w-[450px] pl-10 rounded-md rounded-r-none"
-                  placeholder={`search`}
-                  //  value={searchData}
-                  //  onChange={(e) => setSearchData(e.target.value)}
-                />
-              </div>
-              <button
-                className="bg-[#0A66C2] text-white px-6 sm:px-12 text-lg font-semibold rounded-r-md"
-                //  onClick={() => router.push(`/search?q=${searchData}`)}
-              >
-                Search
-              </button>
-            </div>
           </div>
         </div>
       </div>

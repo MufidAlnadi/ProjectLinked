@@ -1,45 +1,41 @@
-'use client';
+"use client";
 
-import { useCallback, useState } from 'react';
-import { AiOutlineMenu } from 'react-icons/ai';
-import { signOut } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import useLoginModal from '@/app/hooks/useLoginModal';
-import useRegisterModal from '@/app/hooks/useRegisterModal';
-
-import { useSession } from 'next-auth/react';
-
-import MenuItem from './MenuItem';
-import Avatar from './Avatar';
-import usePostModal from '@/app/hooks/usePostModal';
-import { BsThreeDotsVertical } from 'react-icons/Bs';
+import { useCallback, useState } from "react";
+import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import useLoginModal from "@/app/hooks/useLoginModal";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
+import { useSession } from "next-auth/react";
+import MenuItem from "./MenuItem";
+import usePostModal from "@/app/hooks/usePostModal";
+import { BsThreeDotsVertical } from "react-icons/Bs";
 
 const UserMenu = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	const router = useRouter();
-	const loginModal = useLoginModal();
-	const registerModal = useRegisterModal();
-	const postModal = usePostModal();
-	const { data: session } = useSession();
+  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const loginModal = useLoginModal();
+  const registerModal = useRegisterModal();
+  const postModal = usePostModal();
+  const { data: session } = useSession();
 
-	const toggleOpen = useCallback(() => {
-		setIsOpen((value) => !value);
-	}, []);
+  const toggleOpen = useCallback(() => {
+    setIsOpen((value) => !value);
+  }, []);
 
-	const post = useCallback(() => {
-		if (!session?.user) {
-			loginModal.onOpen();
-		}
+  const handlePostProjectClick = () => {
+    if (session?.user) {
+      postModal.onOpen();
+    } else {
+      loginModal.onOpen();
+    }
+  };
 
-		postModal.onOpen();
-	}, [session?.user, loginModal, postModal]);
-
-	return (
-		<div className="relative">
-			<div className="flex flex-row items-center gap-4 px-3">
-				<div
-					onClick={post}
-					className="
+  return (
+    <div className="relative">
+      <div className="flex flex-row items-center gap-4 px-3">
+        <div
+          onClick={handlePostProjectClick}
+          className="
             hidden
             md:block
             text-sm 
@@ -54,12 +50,12 @@ const UserMenu = () => {
             hover:text-black
             cursor-pointer
           "
-				>
-					Post a Project
-				</div>
-				<div
-					onClick={toggleOpen}
-					className="
+        >
+          Post a Project
+        </div>
+        <div
+          onClick={toggleOpen}
+          className="
           p-4
           md:py-1
           md:px-2
@@ -74,13 +70,13 @@ const UserMenu = () => {
           hover:shadow-md 
           transition
           "
-				>
-					<BsThreeDotsVertical size={24} />
-				</div>
-			</div>
-			{isOpen && (
-				<div
-					className="
+        >
+          <BsThreeDotsVertical size={24} />
+        </div>
+      </div>
+      {isOpen && (
+        <div
+          className="
             absolute 
             rounded-xl 
             shadow-md
@@ -92,43 +88,43 @@ const UserMenu = () => {
             top-12 
             text-sm
           "
-				>
-					<div className="flex flex-col cursor-pointer">
-						{session && session.user ? (
-							<>
-								<MenuItem
-									label="Applications"
-									// accepted applications 
-									onClick={() => router.push('/')}
-								/>
-								<MenuItem
-									label="My Projects"
-									onClick={() => router.push('/myProjects')}
-								/>
-								<MenuItem label="Post a Project" onClick={postModal.onOpen} />
-								<hr />
-								<div
-									className=" px-4 
+        >
+          <div className="flex flex-col cursor-pointer">
+            {session && session.user ? (
+              <>
+                <MenuItem
+                  label="Applications"
+                  // accepted applications
+                  onClick={() => router.push("/")}
+                />
+                <MenuItem
+                  label="My Projects"
+                  onClick={() => router.push("/myProjects")}
+                />
+                <MenuItem label="Post a Project" onClick={postModal.onOpen} />
+                <hr />
+                <div
+                  className=" px-4 
                             py-3 
                             hover:bg-red-400 
                             transition
                             font-semibold"
-									onClick={() => signOut()}
-								>
-									Logout
-								</div>
-							</>
-						) : (
-							<>
-								<MenuItem label="Login" onClick={loginModal.onOpen} />
-								<MenuItem label="Sign up" onClick={registerModal.onOpen} />
-							</>
-						)}
-					</div>
-				</div>
-			)}
-		</div>
-	);
+                  onClick={() => signOut()}
+                >
+                  Logout
+                </div>
+              </>
+            ) : (
+              <>
+                <MenuItem label="Login" onClick={loginModal.onOpen} />
+                <MenuItem label="Sign up" onClick={registerModal.onOpen} />
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default UserMenu;
