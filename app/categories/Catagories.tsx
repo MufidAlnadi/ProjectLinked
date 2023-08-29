@@ -3,13 +3,20 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { popularServicesData } from "../components/home/Categories";
+import { useSession } from "next-auth/react";
+import useLoginModal from "../hooks/useLoginModal";
 
 export default function Catagories() {
- 
   const router = useRouter();
+  const { data: session } = useSession();
+  const loginModal = useLoginModal();
 
   const handleCardClick = (job: any) => {
-    router.push(`/job/${job}`);
+    if (!session?.user) {
+      loginModal.onOpen();
+    } else {
+      router.push(`/job/${job}`);
+    }
   };
 
   return (
