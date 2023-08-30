@@ -10,6 +10,16 @@ interface RequestBody {
 export async function POST(request: Request) {
   const body: RequestBody = await request.json();
 
+  const existingUser = await prisma.user.findUnique({
+    where: {
+      email: body.email,
+    },
+  });
+
+  if (existingUser) {
+    return new Response(JSON.stringify({ message: "User already exists" }), { status: 400 });
+  }
+
   const user = await prisma.user.create({
     data: {
       name: body.name,

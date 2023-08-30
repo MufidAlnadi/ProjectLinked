@@ -10,7 +10,7 @@ const Search = () => {
 
   const handleSearch = () => {
     if (session?.user) {
-      console.log("inpout");
+      console.log("input");
     } else {
       loginModal.onOpen();
     }
