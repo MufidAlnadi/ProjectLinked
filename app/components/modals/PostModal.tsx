@@ -21,8 +21,7 @@ enum STEPS {
   LOCATION = 1,
   TITLE = 2,
   DATE = 3,
-  PDF = 4,
-  DESCRIPTION = 5,
+  DESCRIPTION = 4,
 }
 
 const PostModal: React.FC = () => {
@@ -209,13 +208,13 @@ const PostModal: React.FC = () => {
       </div>
     );
   }
-  if (step === STEPS.PDF) {
-    bodyContent = (
-      <div className="flex flex-col gap-8">
-        <Heading title="Submit your project documentation" subtitle="PDF" />
-      </div>
-    );
-  }
+  // if (step === STEPS.PDF) {
+  //   bodyContent = (
+  //     <div className="flex flex-col gap-8">
+  //       <Heading title="Submit your project documentation" subtitle="PDF" />
+  //     </div>
+  //   );
+  // }
   if (step === STEPS.DESCRIPTION) {
     bodyContent = (
       <div className="flex flex-col gap-8">

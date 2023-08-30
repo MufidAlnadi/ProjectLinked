@@ -56,12 +56,7 @@ const Applcationcards: React.FC<JobCardProps> = ({ data }) => {
 								>
 									Applications
 								</button>
-								<button
-									onClick={() => router.push(`/JobDetails/${data.id}`)}
-									className="mr-2 mb-4 flex cursor-pointer items-center justify-center rounded-md border py-2 px-8 text-center text-gray-500 transition duration-150 ease-in-out hover:translate-y-1 hover:bg-rose-500 hover:text-white"
-								>
-									Preview
-								</button>
+								
 							</div>
 						</div>
 					</div>

@@ -10,7 +10,7 @@ interface EmptyStateProps {
 }
 const EmptyState: React.FC<EmptyStateProps> = ({
   title = "No exact matches",
-  subtitle = "Try Changing the category",
+  subtitle = "Empty State",
   showReset,
 }) => {
   const router = useRouter();

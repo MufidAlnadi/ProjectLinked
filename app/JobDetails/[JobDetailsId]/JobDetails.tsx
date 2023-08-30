@@ -43,7 +43,6 @@ const JobDetails: React.FC<JobDetailsProps> = ({ job }) => {
 						description={job.description}
 						fullDescription={job.full_description}
 						location={job.location}
-						pdf={job.pdf_path}
 					/>
 				</div>
 			</div>

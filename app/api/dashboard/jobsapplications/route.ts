@@ -14,7 +14,7 @@ export async function PUT(request: Request) {
   const { id, is_approved, is_deleted } = body;
 
   try {
-    const updatedJob = await prisma.job.update({
+    const updatedJob = await prisma.jobApplication.update({
       where: { id },
       data: {
         is_approved: is_approved || false,

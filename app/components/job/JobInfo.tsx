@@ -13,7 +13,6 @@ interface JobInfoProps {
 	description: string;
 	fullDescription: string;
 	location: string;
-	pdf: string;
 }
 const JobInfo: React.FC<JobInfoProps> = ({
 	category,
@@ -26,7 +25,6 @@ const JobInfo: React.FC<JobInfoProps> = ({
 			<div className="text-xl font-semibold flex flex-row items-center gap-2">
 				<div>{description} </div>
 			</div>
-
 			<hr />
 			{category && (
 				<JobCategory
@@ -35,8 +33,6 @@ const JobInfo: React.FC<JobInfoProps> = ({
 					description={category.label}
 				/>
 			)}
-			<hr />
-			<div className="">pdf</div>
 			<hr />
 			<div className="text-lg font-light text-neutral-500">
 				{fullDescription}

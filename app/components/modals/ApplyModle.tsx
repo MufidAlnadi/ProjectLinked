@@ -16,8 +16,7 @@ enum STEPS {
 	LOCATION = 1,
 	CONTACT = 2,
 	CV = 3,
-	PDF = 4,
-	DESCRIPTION = 5,
+	DESCRIPTION = 4,
 }
 const ApplyJobModal: React.FC = () => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -182,14 +181,6 @@ const ApplyJobModal: React.FC = () => {
 					errors={errors}
 					required
 				/>
-			</div>
-		);
-	}
-
-	if (step === STEPS.PDF) {
-		bodyContent = (
-			<div className="flex flex-col gap-8">
-				<Heading title="Submit your project documentation" subtitle="PDF" />
 			</div>
 		);
 	}
