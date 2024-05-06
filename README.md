@@ -1,4 +1,4 @@
-# Project Title
+# ProjectLinked
 
 🔧 Platform for Connecting Clients with Specialized Subcontractors 🔩
 
